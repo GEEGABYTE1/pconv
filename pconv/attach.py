@@ -47,8 +47,6 @@ class Conv:
             return 'Key not found'
 
 
-pconv = Conv()
-
-
-
+pconv = Conv('test')
+pconv.attach('test', 'key1', 'value1')
 
