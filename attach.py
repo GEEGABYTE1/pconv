@@ -35,7 +35,10 @@ class Conv:
             self.save_items(self.saved_data, self.data) # Adding {key: value} data to filepath.json
 
     def spill(self):
-        pass 
+        try:
+            return self.data
+        except:
+            return 'Data cannot be loaded'
 
     def load(self, key):
         if key in self.data:
@@ -44,6 +47,8 @@ class Conv:
             return 'Key not found'
 
 
-test_conv = Conv('test')
-test_conv.attach('test', 'key1', 'value1')
-print(test_conv.load('key1'))
+pconv = Conv()
+
+
+
+
