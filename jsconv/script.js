@@ -3,24 +3,13 @@ const fs = require('fs')
 class jsconv {
 
     constructor(filepath) {
-        if (typeof filepath !== 'String') {
-            throw new Error('Invalid Filepath Type')
+        if (typeof filepath !== "String") {
+            throw new Error('Invalid Filepath')
         } else {
-            this.filepath = filepath + '.json'
-
-        }        
-
-    }
-
-    readjs() {
-        try {
-            fs.readFile(this.filepath)
-        } catch (err) {
-            return err
+            this.filepath = filepath
         }
+
     }
 
-    loadjs() {
-        
-    }
+    
 }
