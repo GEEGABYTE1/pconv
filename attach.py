@@ -9,7 +9,8 @@ class Conv:
         self.update(filename)
 
     def update(self, filename):
-        self.saved_data = filename
+        self.saved_data = filename + '.json'
+        self.save_items(self.saved_data, {'key1':'initialize1'})
         self.data = self.load_items(self.saved_data)
 
 
@@ -26,20 +27,23 @@ class Conv:
         except:
             return "{} not found".format(filepath)
 
-    def attach(self, file_name, key, data):
+    def attach(self, file_name, key, value):
         if type(file_name) != str:
             return "Invalid Filename"
         else:
-            file_name += '.json'
-            data[key] = clipboard.paste()
-            self.save_items(file_name, data) # Adding {key: value} data to filepath.json
+            self.data[key] = value
+            self.save_items(self.saved_data, self.data) # Adding {key: value} data to filepath.json
 
     def spill(self):
         pass 
 
-    def load(self):
-        self.load_items()
+    def load(self, key):
+        if key in self.data:
+            return self.data[key]
+        else:
+            return 'Key not found'
 
 
-test_conv = Conv()
+test_conv = Conv('test')
 test_conv.attach('test', 'key1', 'value1')
+print(test_conv.load('key1'))
