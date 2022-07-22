@@ -5,9 +5,13 @@ import json
 
 class Conv:
 
+    def __init__(self, filename):
+        self.update(filename)
 
-    def __init__(self): 
-        self.command = sys.argv(1)
+    def update(self, filename):
+        self.saved_data = filename
+        self.data = self.load_items(self.saved_data)
+
 
 
     def save_items(self, filepath, data):
@@ -20,7 +24,7 @@ class Conv:
                 data = json.load(f)
                 return data
         except:
-            return "{} ot found".format(filepath)
+            return "{} not found".format(filepath)
 
     def attach(self, file_name, key, data):
         if type(file_name) != str:
@@ -38,4 +42,4 @@ class Conv:
 
 
 test_conv = Conv()
-test_conv.attach('test')
+test_conv.attach('test', 'key1', 'value1')
