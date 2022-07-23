@@ -11,46 +11,21 @@ class jsconv {
 
     }
 
-    listjs() {
-        var data = fs.readFile(this.filepath, 'utf-8', (err, jsonString) => {
-            if (err) {
-                console.log(err)
-                return false
-            } else {
-                return jsonString
-            }
-                   // log data for test purposes
-        })
+    writejs(key, value) {
+        const input = {key:value}
+        const data = JSON.stringify(input)
+        try {
+            fs.writeFileSync(this.filepath, data)
+            console.log('JSON data is saved')
+ 
+        } catch (err) {
+            console.log(err)
+        }
+        
     }
-
-    jsonReader(filePath=this.filepath, cb) {
-        fs.readFile(filePath, 'utf-8', (err, fileData) => {
-            if (err) {
-                return cb && cb (err)
-            } else {
-                try {
-                    const object = JSON.parse(fileData)
-                    return cb && cb(null, object);
-                } catch (err) {
-                    return cb && cb(err)
-                }
-            }
-        })
-    }
-
-
-    loadjs(key) {
-        this.jsonReader(this.filepath, (err, data) => {
-            if (err) {
-                return err 
-            } else {
-                return data.key
-            }
-        })
-    }
-
 }
 
 
-let test_jsconv = new jsconv('test.json')
-test_jsconv.listjs()
+
+test = new jsconv('./test.json')
+test.writejs('key2', 'value2')
