@@ -13,7 +13,7 @@ class jsconv {
 
     writejs(key, value) {
         const input = {key:value}
-        const data = JSON.stringify(input)
+        let data = JSON.stringify(input, null, 4)
         try {
             fs.writeFileSync(this.filepath, data)
             console.log('JSON data is saved')
@@ -23,9 +23,28 @@ class jsconv {
         }
         
     }
+
+    readjs() {
+        try{
+            const returned_result = fs.readFileSync(this.filepath, 'utf-8')
+            return returned_result
+            
+        } catch (err) {
+            return err
+        }
+    }
+    
+
+    
+
+
+
 }
 
 
 
 test = new jsconv('./test.json')
-test.writejs('key2', 'value2')
+//test.writejs('key2', 'value2')
+/*
+var test_result = test.readjs()
+console.log(test_result) */
