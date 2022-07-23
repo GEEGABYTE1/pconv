@@ -1,6 +1,7 @@
 const fs = require('fs')
 
-class jsconv {
+
+class Jsconv {
 
     constructor(filepath) {
         if (typeof filepath !== "string") {
@@ -59,7 +60,10 @@ class jsconv {
 
 
 
-test = new jsconv('./test.json')
+exports.jsconv_init = function (file_path) {
+    const jsconv = new Jsconv(file_path)
+    return jsconv
+}
 //test.writejs('key4', 'works after 3?')
 
 
