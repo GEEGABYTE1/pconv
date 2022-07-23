@@ -12,15 +12,26 @@ class jsconv {
     }
 
     writejs(key, value) {
-        const input = {key:value}
-        let data = JSON.stringify(input, null, 4)
-        try {
-            fs.writeFileSync(this.filepath, data)
-            console.log('JSON data is saved')
- 
-        } catch (err) {
-            console.log(err)
+        
+        const updated_object = this.updateJson(key, value)
+        const object_keys = Object.keys(updated_object)
+        const object_values = Object.values(updated_object)
+        const object_idx = 0 
+        
+        for (object_idx; object_idx <= object_keys.length && object_idx <= object_values.length; object_idx++) {
+            const object_key = object_keys[object_idx]
+            const object_value = object_values[object_idx]
+            const input = {object_key:object_value}
+            let data = JSON.stringify(input)
+            try {
+                fs.writeFileSync(this.filepath, data)
+                console.log('JSON data is saved')
+     
+            } catch (err) {
+                return err
+            }
         }
+
         
     }
 
@@ -32,6 +43,14 @@ class jsconv {
         } catch (err) {
             return err
         }
+    }
+
+    updateJson(key, value) {
+        let dictionary = this.readjs()
+        const dictionary_obj = JSON.parse(dictionary)
+        
+        dictionary_obj[key] = value
+        return dictionary_obj
     }
     
 
@@ -45,6 +64,7 @@ class jsconv {
 
 test = new jsconv('./test.json')
 //test.writejs('key2', 'value2')
-/*
+
 var test_result = test.readjs()
-console.log(test_result) */
+console.log(test_result) 
+test.updateJson()

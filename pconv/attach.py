@@ -48,5 +48,5 @@ class Conv:
 
 
 pconv = Conv('test')
-pconv.attach('test', 'key1', 'value1')
+pconv.attach('test', 'myface', 'value2')
 
