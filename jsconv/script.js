@@ -42,6 +42,13 @@ class jsconv {
         dictionary_obj[key] = value
         return dictionary_obj
     }
+
+    loadjs(key) {
+        const returned_object = fs.readFileSync(this.filepath, 'utf-8')
+        const returned_object_parsed = JSON.parse(returned_object)
+        const result = returned_object_parsed[key]
+        return result
+    }
     
 
     
@@ -53,10 +60,14 @@ class jsconv {
 
 
 test = new jsconv('./test.json')
-test.writejs('key4', 'works after 3?')
+//test.writejs('key4', 'works after 3?')
 
 
 /*
 var test_result = test.readjs()
 console.log(test_result) 
 test.updateJson()*/
+
+/*
+const result = test.loadjs("key4")
+console.log(result) */
