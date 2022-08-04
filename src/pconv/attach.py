@@ -49,8 +49,8 @@ class Conv:
             return None
 
 
-pconv = Conv('test.json')
+'''pconv = Conv('test.json')
 pconv.attach('test', 'myface', 'value2')
 results = pconv.spill()
-print(results)
+print(results)'''
 
