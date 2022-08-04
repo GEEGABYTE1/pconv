@@ -1,4 +1,39 @@
-# pconv
+Metadata-Version: 2.1
+Name: piconv
+Version: 0.0.1
+Summary: Convert Python Data to JS through JSON
+Author: Jaival Patel
+License: MIT License
+        
+        Copyright (c) [year] [fullname]
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/GEEGABYTE1/pconv
+Project-URL: Bug Tracker, https://github.com/GEEGABYTE1/pconv/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pyconv
 Convert Python data to Javascript through JSON. Read, Write, and Update data through JSON files for multi-language compatibility.
 
 ### Installation and use
@@ -21,18 +56,18 @@ python --version
 Install ***pconv***:
 
 ```
-pip install pconv_lib
+pip install pconv
 ```
 
 Install ***pconv*** with pip3: 
 
 ```
-pip3 install pconv_lib
+pip3 install pconv
 ```
 
 Import Library to File: 
 ```
-from pconv_lib import pconv
+from pconv import Conv
 ```
 
 ### Dependencies
@@ -50,7 +85,7 @@ pconv depends on the following Python modules for development:
 Before interacting with the package, you must set a filepath of the relative json that needs to be worked with.
 
 ```
-var pconv_var = pconv.Conv('FILEPATH_OF_JSON')
+pconv = Conv('FILEPATH_OF_JSON')
 ```
 
 
@@ -59,7 +94,7 @@ var pconv_var = pconv.Conv('FILEPATH_OF_JSON')
 pconv will add data in the form of a dictionary to the JSON file.
 
 ```
-pconv_var.attach('FILEPATH_OF_JSON', 'KEY_VALUE', 'CORRESPONDING_VALUE')
+pconv.attach('FILEPATH_OF_JSON', 'KEY_VALUE', 'CORRESPONDING_VALUE')
 ```
 
 *Note*: If there is a key that is being added to the JSON that has already been added before, the function will override past data on the JSON by nature.
@@ -72,7 +107,7 @@ A user may also be faced with an error of type `NoFilepathFoundError` if their f
 Loads a value of a desired key in the JSON.
 
 ```
-returned_var = pconv_var.load('DESIRED_KEY')
+returned_var = pconv.load('DESIRED_KEY')
 ```
 
 If a key is not found, pconv will return ***None***.
@@ -81,7 +116,7 @@ If a key is not found, pconv will return ***None***.
 View all the data in the form of a dictionary.
 
 ```
-result_from_json = pconv_var.spill()
+result_from_json = pconv.spill()
 ```
 
 *Note*: If the json is empty, the function will return ***None***.
@@ -97,9 +132,8 @@ In this case, it is essential that the user has typed the correct filepath and h
 
 
 ## Resources (Coming Soon)
-- [Pypi pconv](https://pypi.org/project/pconv-lib/0.0.3/)
+- [Pypi pconv]()
 - [Jsconv]()
-
 
 
 ## Contact Information
