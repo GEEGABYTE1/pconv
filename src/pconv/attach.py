@@ -47,6 +47,6 @@ class Conv:
             return 'Key not found'
 
 
-pconv = Conv('test')
-pconv.attach('test', 'myface', 'value2')
+#pconv = Conv('test')
+#pconv.attach('test', 'myface', 'value2')
 
