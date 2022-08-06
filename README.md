@@ -98,7 +98,8 @@ In this case, it is essential that the user has typed the correct filepath and h
 
 ## Resources (Coming Soon)
 - [Pypi pconv](https://pypi.org/project/pconv-lib/0.0.3/)
-- [Jsconv]()
+- [Jsconv Repo](https://github.com/GEEGABYTE1/jsconv)
+- [Jsconv npm](https://www.npmjs.com/package/jsconv)
 
 
 
